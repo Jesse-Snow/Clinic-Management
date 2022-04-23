@@ -1,0 +1,97 @@
+* {
+  box-sizing: border-box;
+}
+
+
+:root {
+  font-size:16px;
+}
+
+body,h1,h2,h3,p {
+  margin:0;
+}
+
+body {
+  height:100vh;
+  display:flex;
+  flex-direction:column; 
+}
+
+.navbar  {
+  padding:0.5rem;
+}
+
+.navbar > ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  display:flex;
+  flex-direction: row;
+}
+.navbar > ul > li {
+  padding:0rem 1rem;
+}
+
+.main {
+  margin:0;
+  padding:0;
+  display:flex;
+  height: 30rem;
+  flex-direction:row;
+  justify-content: center;
+  min-height: 95%;
+}
+
+.left-side {
+  border:2px solid gray;
+  flex-basis: 20%;
+  padding:1rem;
+}
+.left-side > * {
+  padding:1rem;
+}
+.center-side {
+  border:2px solid black;
+  flex-basis: 80%;
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.center-elements {
+  height:100%;
+  width: 50%;
+}
+.search-record-input > input {
+  margin-left:10rem;
+  margin-top:1rem;
+}
+
+.patient {
+  margin-top:1rem;
+  border:1px solid black;
+  border-radius: 1rem;
+}
+
+.dropdown .dropdown-patitent-record {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown .dropdown-patitent-record > *{
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left
+}
+.dropdown:hover .dropdown-patitent-record {
+  display:block;
+}

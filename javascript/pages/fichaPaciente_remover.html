@@ -4,15 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Base</title>
-  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="../styles/fichaPaciente.css">
 </head>
 
 <body>
+
   <div class="navbar">
     <ul>
-      <li><a href="#news">HOME</a></li>
-      <li><a href="#news">Conta da Clínica</a></li>
-      <li><a href="#news">Log out</a></li>
+      <li><a href="../index.html">HOME</a></li>
+      <li><a href="#">Conta da Clínica</a></li>
+      <li><a href="#">Log out</a></li>
     </ul>
   </div>
   <div class="main">
@@ -24,9 +25,9 @@
       <div class="dropdown">
         <button>Gerenciar Ficha Paciente</button>
         <div class="dropdown-patitent-record">
-          <a href="#">Adicionar Paciente</a>
-          <a href="#">Atuaizar Paciente</a>
-          <a href="#">Remover Paciente</a>
+          <a href="./fichaPaciente.html">Adicionar Paciente</a>
+          <a href="./fichaPaciente_atualizar.html">Atuaizar Paciente</a>
+          <a href="./fichaPaciente_remover.html">Remover Paciente</a>
         </div>
       </div>
 
@@ -42,6 +43,13 @@
 
     <div class="center-side">
       <div class="center-elements">
+        <form>
+          <label for="cpf" ><strong>Pesquisar CPF do Paciente</strong></label>
+          <input type="text" id="cpf" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
+          placeholder="Qual CPF do paciente?" name="cpf" >
+          <h1>Deletar</h1>
+          <input type="submit" value="Remover">
+        </form>
       
       </div>
 
@@ -49,6 +57,6 @@
 
   </div>
 
-  <script src="main.js"></script>
+  <script src="../js/fichaPaciente.js"></script>
 </body>
 </html>

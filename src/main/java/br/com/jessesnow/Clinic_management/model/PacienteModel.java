@@ -7,116 +7,116 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity(name="fichaPaciente")
+@Entity
 @Table(name="FichaPaciente")
 public class PacienteModel {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name="PacienteID")
-  public Integer PacienteID;
+  public Integer pacienteID;
 
-  public String NomeCompleto;
-  public String CPF;
-  public String Email;
-  public String Celular;
-  public String Endereco;
-  public String Sexo;
-  public Integer Idade;
-  public Integer PlanoDeSaude;
-  public String NomePlanoDeSaude;
-  public String Diagnostico;
-  public String Procedimentos;
-  public String Medicamentos;
+  public String nomeCompleto;
+  public String cpf;
+  public String email;
+  public String celular;
+  public String endereco;
+  public String sexo;
+  public Integer idade;
+  public Integer planoDeSaude;
+  public String nomePlanoDeSaude;
+  public String diagnostico;
+  public String procedimentos;
+  public String medicamentos;
 
   public Integer getPacienteId(){
-    return PacienteID;
+    return pacienteID;
   }
-  public void setPacienteID(Integer PacienteID){
-    this.PacienteID = PacienteID;
+  public void setPacienteID(Integer pacienteID){
+    this.pacienteID = pacienteID;
   }
   
-  public String getNomeCompleto(){
-    return NomeCompleto;
+  public String getnomeCompleto(){
+    return nomeCompleto;
   }
-  public void setNomeCompleto(String NomeCompleto){
-    this.NomeCompleto = NomeCompleto; 
+  public void setnomeCompleto(String nomeCompleto){
+    this.nomeCompleto = nomeCompleto; 
   }
 
-  public String getCPF(){
-    return CPF;
+  public String getCpf(){
+    return cpf;
   }
-  public void setCPF(String CPF){
-    this.CPF = CPF;
+  public void setCpf(String cpf){
+    this.cpf = cpf;
   }
 
   public String getEmail(){
-    return Email;
+    return email;
   }
-  public void setEmail(String Email){
-    this.Email = Email;
+  public void setEmail(String email){
+    this.email = email;
   }
 
   public String getCelular(){
-    return Celular;
+    return celular;
   }
-  public void setCelular(String Celular){
-    this.Celular = Celular;
+  public void setCelular(String celular){
+    this.celular = celular;
   }
 
   public String getEndereco(){
-    return Endereco;
+    return endereco;
   }
-  public void setEndereco(String Endereco){
-    this.Endereco = Endereco;
+  public void setEndereco(String endereco){
+    this.endereco = endereco;
   }
 
   public String getSexo(){
-    return Sexo;
+    return sexo;
   }
-  public void setSexo(String Sexo){
-    this.Sexo = Sexo;
+  public void setSexo(String sexo){
+    this.sexo = sexo;
   }
 
   public Integer getIdade(){
-    return Idade;
+    return idade;
   }
-  public void setIdade(Integer Idade){
-    this.Idade = Idade;
+  public void setIdade(Integer idade){
+    this.idade = idade;
   }
 
   public Integer getPlanoDeSaude(){
-    return PlanoDeSaude;
+    return planoDeSaude;
   }
-  public void setPlanoDeSaude(Integer PlanoDeSaude){
-    this.PlanoDeSaude = PlanoDeSaude;
+  public void setPlanoDeSaude(Integer planoDeSaude){
+    this.planoDeSaude = planoDeSaude;
   }
 
   public String getNomePlanoDeSaude(){
-    return NomePlanoDeSaude;
+    return nomePlanoDeSaude;
   }
-  public void setNomePlanoDeSaude(String NomePlanoDeSaude){
-    this.NomePlanoDeSaude = NomePlanoDeSaude;
+  public void setNomePlanoDeSaude(String nomePlanoDeSaude){
+    this.nomePlanoDeSaude = nomePlanoDeSaude;
   }
 
   public String getDiagnostico(){
-    return Diagnostico;
+    return diagnostico;
   }
-  public void setDiagnostico(String Diagnostico){
-    this.Diagnostico = Diagnostico;
+  public void setDiagnostico(String diagnostico){
+    this.diagnostico = diagnostico;
   }
 
   public String getProcedimentos(){
-    return Procedimentos;
+    return procedimentos;
   }
-  public void setProcedimentos(String Procedimentos){
-    this.Procedimentos = Procedimentos;
+  public void setProcedimentos(String procedimentos){
+    this.procedimentos = procedimentos;
   }
 
   public String getMedicamentos(){
-    return Medicamentos;
+    return medicamentos;
   }
-  public void setMedicamentos(String Medicamentos){
-    this.Medicamentos = Medicamentos;
+  public void setMedicamentos(String medicamentos){
+    this.medicamentos = medicamentos;
   }
 }

@@ -19,7 +19,6 @@ public class PacienteModel {
   public String nomeCompleto;
   public String cpf;
   public String email;
-  @Column(name="Celular")
   public String celular;
   public String endereco;
   public String sexo;

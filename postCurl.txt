@@ -1,1 +1,3 @@
 curl -X POST http://localhost:8080/pacientes -H 'Content-Type:application/json' -d '{"nomeCompleto":"Elijah Crimson","cpf":"6531678831","email":"elijahcnemail.com","celular":"6416712367","endereco":"California,New Iork","sexo":"M","idade":645,"planoDeSaude":0,"diagnostico":"Paciente vampiro","procedimentos":"Colocar alho para testar se tem alergia","medicamentos":"Sangue de bode"}'
+
+curl -X POST http://localhost:8080/pacientes -H 'Content-Type:application/json' -d '{"nomeCompleto":"Samus Aran","cpf":"4151351513","email":"samus.com","celular":"71341158","endereco":"Far from this Planet,Dark Aether","sexo":"F","idade":32,"planoDeSaude":0,"diagnostico":"Infecção por X Parasite","procedimentos":"Utilizar Injeção Metroid","medicamentos":"Injeção Metroid"}'

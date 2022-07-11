@@ -8,8 +8,10 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.web.JsonPath;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
@@ -46,7 +48,6 @@ public class PacienteControllerTests {
 
   // Need to fix this and Delete this Row in Database
   @Test 
-  @Transactional
   public void POST_Should_Return_Ok() throws Exception {
     PacienteModel pacienteModel = new PacienteModel();
     pacienteModel.setPacienteID(500);
@@ -64,18 +65,23 @@ public class PacienteControllerTests {
     pacienteModel.setNomePlanoDeSaude("");
     String requestJson = ObjectMapper.writeValueAsString(pacienteModel); 
 
-    this.mockMvc.perform(MockMvcRequestBuilders.post("/pacientes")
+    MvcResult result = this.mockMvc.perform(MockMvcRequestBuilders.post("/pacientes")
         .contentType(MediaType.APPLICATION_JSON)
         .content(requestJson)
         .accept(MediaType.APPLICATION_JSON))
-        .andExpect(MockMvcResultMatchers.status().isOk());
+        .andExpect(MockMvcResultMatchers.status().isOk())
+        .andReturn();
+    
+    String content = result.getResponse().getContentAsString();
+    String id = com.jayway.jsonpath.JsonPath.read(content,"pacienteID").toString();
 
-    pacienteRepository.deleteByNomeCompleto("Samus Aram");
+    this.mockMvc.perform(MockMvcRequestBuilders.delete("/pacientes/".concat(id))
+         .contentType(MediaType.APPLICATION_JSON)
+         .accept(MediaType.APPLICATION_JSON))
+         .andExpect(MockMvcResultMatchers.status().isOk());
+  
+
+
   }
 
-//   this.mockMvc.perform(MockMvcRequestBuilders.delete("/pacientes/'Samus Aram'")
-//       .contentType(MediaType.APPLICATION_JSON)
-//       .accept(MediaType.APPLICATION_JSON))
-//       .andExpect(MockMvcResultMatchers.status().isOk());
-  
-}
+   }

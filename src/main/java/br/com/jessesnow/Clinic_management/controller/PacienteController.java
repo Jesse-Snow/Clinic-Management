@@ -5,7 +5,11 @@ import br.com.jessesnow.Clinic_management.repository.PacienteRepository;
 
 import java.util.List;
 
+import javax.persistence.Query;
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +18,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -24,6 +31,7 @@ public class PacienteController {
   private PacienteRepository pacienteRepository;
 
   @GetMapping
+  @ResponseStatus(code = HttpStatus.OK) 
   public List<PacienteModel> findPacientes(){
     return pacienteRepository.findAll();
   }
@@ -63,13 +71,21 @@ public class PacienteController {
   } 
 
 
-  @DeleteMapping(path = "/{PacienteID}")
-  public ResponseEntity deletePacientes(@PathVariable Integer PacienteID){
-    return pacienteRepository.findById(PacienteID)
-      .map( record -> {
-        pacienteRepository.deleteById(PacienteID);
-        return ResponseEntity.ok().build();
-      }).orElse(ResponseEntity.notFound().build());
-  }
+ @DeleteMapping(path = "/{PacienteID}")
+ public ResponseEntity deletePacientes(@PathVariable Integer PacienteID){
+   return pacienteRepository.findById(PacienteID)
+     .map( record -> {
+       pacienteRepository.deleteById(PacienteID);
+       return ResponseEntity.ok().build();
+     }).orElse(ResponseEntity.notFound().build());
+ }
   
+// @DeleteMapping(path = "/{nomeCompleto}")
+// public ResponseEntity deletePacientesByName(@RequestParam String nomeCompleto){
+//   return pacienteRepository.findByNomeCompleto(nomeCompleto)
+//     .map( record -> {
+//       pacienteRepository.deleteById(record.getPacienteID());
+//       return ResponseEntity.ok().build();
+//     }).orElse(ResponseEntity.notFound().build());
+// }
 }
